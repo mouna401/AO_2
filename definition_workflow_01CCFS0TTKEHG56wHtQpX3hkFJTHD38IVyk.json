@@ -1,0 +1,2371 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk",
+    "name": "P5G-CUPS-CP-DEPLOY",
+    "title": "P5G-CUPS-CP-DEPLOY",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Gprsrocks123#",
+          "scope": "local",
+          "name": "vnfPassword",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01CG5OFWPT2LU1xnHiE3zXXkqY9utjLI69r",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "p5g-internal-mgmt-net",
+          "scope": "local",
+          "name": "p5g-internal-mgmt-net",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01CCFS0TFY2FP5dt1ZcpnAMuw5yHrdlpgPL",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "customerIndex",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "osTenant",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01CCFS0TFY40W6lIGUo5MJXvWIGANThjh2L",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "customer",
+          "type": "datatype.string",
+          "is_required": true
+        },
+        "unique_name": "variable_workflow_01CCFS0TFXU6I7Oeu9qwStZxDexpTZxv6In",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "esc",
+          "scope": "input",
+          "name": "escName",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01CCFS0TFY0SY6Ua1Qp5fXe8wbP1DmV7gB2",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": true,
+          "scope": "local",
+          "name": "Default Loop",
+          "type": "datatype.boolean",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01CCFS0TFXQQU1JoLmSl86eZm4G9t9y27Rt",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "admin",
+          "scope": "local",
+          "name": "vnfUsername",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01CG5NEJ4GF9V1GRytsQVpt6Kz8H2vwaddC",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "P5G-CUPS-CP-DEPLOY",
+      "favorite": false,
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "target_type": "netconf.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01CCFS4DRLUA37n2C7GOGCthg5UjZAn15Gl",
+        "name": "Group",
+        "title": "Set dynamic parameters",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set dynamic parameters",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01CCFS4RKCEVG6BatttmrbtnGRO7xQFAofE",
+            "name": "Set Variables",
+            "title": "Get customer index",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Get customer index",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$",
+                  "variable_value_new": "$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.input.variable_workflow_01CCFS0TFXU6I7Oeu9qwStZxDexpTZxv6In$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01CCFS525VZO029Oya3rnJ9dihat3UTqTTA",
+            "name": "Set Variables",
+            "title": "Set os tenant name",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Set os tenant name",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFY40W6lIGUo5MJXvWIGANThjh2L$",
+                  "variable_value_new": "P5G-$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01CCFS5JP8LJL3kSpwuhmLBXywja4SW7uBQ",
+        "name": "Group",
+        "title": "Deploy Images and Flavors",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Deploy Images and Flavors",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01CSFKBIRFXMM4J402mY76b3zaTpKCYmcPn",
+            "name": "Group",
+            "title": "vpcsi",
+            "type": "logic.group",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "vpcsi",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01CCFS5X55Y8V7Dv2F22CThdcfji4DR6TiP",
+                "name": "<edit-config>",
+                "title": "VPCSI - Image & Flavor",
+                "type": "netconf.editConfig",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "config": "<nfvo xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo\">\n<vnfd>\n<id>CUPS</id>\n<provider>Cisco</provider>\n<product-name>CUPS</product-name>\n<version>1</version>\n<product-info-description>CUPS</product-info-description>\n<vdu>\n<id>VPCSI</id>\n<internal-connection-point-descriptor>\n<id>nic1</id>\n<external-connection-point-descriptor>p5g-internal-mgmt-net</external-connection-point-descriptor>\n<layer-protocol>IPv4</layer-protocol>\n<interface-id xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">0</interface-id>\n</internal-connection-point-descriptor>\n<internal-connection-point-descriptor>\n<id>nic2</id>\n<external-connection-point-descriptor>p5g-vpc-service</external-connection-point-descriptor>\n<layer-protocol>IPv4</layer-protocol>\n<interface-id xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">1</interface-id>\n</internal-connection-point-descriptor>\n<internal-connection-point-descriptor>\n<id>nic3</id>\n<external-connection-point-descriptor>p5g-sdwan-service</external-connection-point-descriptor>\n<layer-protocol>IPv4</layer-protocol>\n<interface-id xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">2</interface-id>\n</internal-connection-point-descriptor>\n<virtual-compute-descriptor>vpcsi</virtual-compute-descriptor>\n<virtual-storage-descriptor>vpcsi</virtual-storage-descriptor>\n<software-image-descriptor>\n<container-format>bare</container-format>\n<disk-format>qcow2</disk-format>\n<image>http://10.49.234.154/p5g/images/upf/openstack/UPF.qcow2</image>\n<image-name xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-nfvis\">upf_cups</image-name>\n</software-image-descriptor>\n</vdu>\n<virtual-compute-descriptor>\n<id>vpcsi</id>\n<virtual-memory>\n<virtual-memory-size>32.0</virtual-memory-size>\n</virtual-memory>\n<virtual-cpu>\n<number-of-virtual-cpus>6</number-of-virtual-cpus>\n</virtual-cpu>\n</virtual-compute-descriptor>\n<virtual-storage-descriptor>\n<id>vpcsi</id>\n<type-of-storage>root</type-of-storage>\n<size-of-storage>8</size-of-storage>\n</virtual-storage-descriptor>\n<external-connection-point-descriptor>\n<id>p5g-vpc-service</id>\n<layer-protocol>IPv4</layer-protocol>\n</external-connection-point-descriptor>\n<external-connection-point-descriptor>\n<id>p5g-sdwan-service</id>\n<layer-protocol>IPv4</layer-protocol>\n</external-connection-point-descriptor>\n<external-connection-point-descriptor>\n<id>p5g-internal-mgmt-net</id>\n<layer-protocol>IPv4</layer-protocol>\n<management xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\"/>\n</external-connection-point-descriptor>\n<deployment-flavor>\n<id>vpcsi</id>\n<vdu-profile>\n<vdu>VPCSI</vdu>\n<min-number-of-instances>1</min-number-of-instances>\n<max-number-of-instances>1</max-number-of-instances>\n</vdu-profile>\n<instantiation-level>\n<id>bronze</id>\n<vdu-level>\n<vdu>VPCSI</vdu>\n<number-of-instances>1</number-of-instances>\n</vdu-level>\n</instantiation-level>\n<default-instantiation-level>bronze</default-instantiation-level>\n</deployment-flavor>\n</vnfd>\n<onboarding>\n<esc xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">\n<flavor>\n<name>vpcsi</name>\n<vnfd>CUPS</vnfd>\n<vdu>VPCSI</vdu>\n<esc-device>\n<name>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.input.variable_workflow_01CCFS0TFY0SY6Ua1Qp5fXe8wbP1DmV7gB2$</name>\n</esc-device>\n</flavor>\n<image>\n<name>upf_cups</name>\n<vnfd>CUPS</vnfd>\n<vdu>VPCSI</vdu>\n<esc-device>\n<name>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.input.variable_workflow_01CCFS0TFY0SY6Ua1Qp5fXe8wbP1DmV7gB2$</name>\n</esc-device>\n</image>\n</esc>\n</onboarding>\n</nfvo>",
+                  "continue_on_failure": false,
+                  "datastore": "running",
+                  "defaultoperation": "merge",
+                  "display_name": "VPCSI - Image & Flavor",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  },
+                  "testoption": "set"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01CCFS6DWZDOO0dQf96crA5xsmpeLsc2KJW",
+                "name": "While Loop",
+                "title": "VPCSI Image Check",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "VPCSI Image Check",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01CCFS6N3LQ667E1ouSo8glcVQRjv3v5f0q",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXQQU1JoLmSl86eZm4G9t9y27Rt$",
+                        "operator": "eq",
+                        "right_operand": true
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01CSIWOUVVEBX7U3LLO5gp1dIMdJ0avXPDe",
+                        "name": "Get VPCSI image status",
+                        "title": "Get VPCSI image status",
+                        "type": "workflow.sub_workflow",
+                        "base_type": "subworkflow",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Get VPCSI image status",
+                          "input": {
+                            "variable_workflow_01C6FE275D9Z15PC5mTbdujG2FSuPPktIUo": true,
+                            "variable_workflow_01C6FEK3J0GSU5b9QA3kE1p8OMxpwYaUQSY": "/nfvo/onboarding/esc/image-result[name='upf_cups']/status",
+                            "variable_workflow_01C6FGE5IPM375TK6Jf0tZV9pTBX47ZiTcb": ""
+                          },
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "target_type": "01AZGH23JYXWF4Dy5t9N9OFZ9wBmPIj8Kr8",
+                            "use_workflow_target": true
+                          },
+                          "workflow_id": "definition_workflow_01C6FCXHA3W015hBwO7Qy2mEf0Q0KXrT3Bt"
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01CCFS7GR3C853JHhB6i6I9DvoUwTpvfW7d",
+                        "name": "Condition Block",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_01CCFS7SNVLHG1CJWXOErQaNmoeQlpmfT3V",
+                            "name": "Condition Branch",
+                            "title": "Condition Branch \"ready\"",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": "$activity.definition_activity_01CSIWOUVVEBX7U3LLO5gp1dIMdJ0avXPDe.output.variable_workflow_01C6FUY1R6LMF5I0BWpGRNmNwPo8PUhKIuA$",
+                                "operator": "mw",
+                                "right_operand": "*ready*"
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Condition Branch \"ready\"",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01CCFS86GQHJ522Lz1BWytRmhZXpVyqXIDI",
+                                "name": "Break",
+                                "title": "Break",
+                                "type": "logic.break",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Break",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01CCFS8O0C1VE25RjBSbrrb2KE6gc0mXayw",
+                        "name": "Sleep",
+                        "title": "Sleep",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep",
+                          "skip_execution": false,
+                          "sleep_interval": 15
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01CSFKTNBTVZF4TG7iXGPUF1N4OSQhTVwIU",
+            "name": "Group",
+            "title": "Lattice",
+            "type": "logic.group",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Lattice",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01CCJJLM6RBSP3MRIJmxbP21ZZuZ4MkE3Wh",
+                "name": "<edit-config>",
+                "title": "LATTICE - Image & Flavor",
+                "type": "netconf.editConfig",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "config": "<nfvo xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo\">\n<vnfd>\n<id>CUPS</id>\n<provider>Cisco</provider>\n<product-name>CUPS</product-name>\n<version>1</version>\n<product-info-description>CUPS</product-info-description>\n<vdu>\n<id>LATTICE</id>\n<internal-connection-point-descriptor>\n<id>nic1</id>\n<external-connection-point-descriptor>p5g-internal-mgmt-net</external-connection-point-descriptor>\n<layer-protocol>IPv4</layer-protocol>\n<interface-id xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">0</interface-id>\n</internal-connection-point-descriptor>\n<internal-connection-point-descriptor>\n<id>nic2</id>\n<external-connection-point-descriptor>p5g-service</external-connection-point-descriptor>\n<layer-protocol>IPv4</layer-protocol>\n<interface-id xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">1</interface-id>\n</internal-connection-point-descriptor>\n<virtual-compute-descriptor>lattice</virtual-compute-descriptor>\n<virtual-storage-descriptor>lattice</virtual-storage-descriptor>\n<software-image-descriptor>\n<container-format>bare</container-format>\n<disk-format>qcow2</disk-format>\n<image>http://10.49.234.154/p5g/images/lattice/openstack/CentOS-7-x86_64-GenericCloud-1809.qcow2</image>\n<image-name xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-nfvis\">lattice_cups</image-name>\n</software-image-descriptor>\n</vdu>\n<virtual-compute-descriptor>\n<id>lattice</id>\n<virtual-memory>\n<virtual-memory-size>4.0</virtual-memory-size>\n</virtual-memory>\n<virtual-cpu>\n<number-of-virtual-cpus>2</number-of-virtual-cpus>\n</virtual-cpu>\n</virtual-compute-descriptor>\n<virtual-storage-descriptor>\n<id>lattice</id>\n<type-of-storage>root</type-of-storage>\n<size-of-storage>8</size-of-storage>\n</virtual-storage-descriptor>\n<external-connection-point-descriptor>\n<id>p5g-service</id>\n<layer-protocol>IPv4</layer-protocol>\n</external-connection-point-descriptor>\n<external-connection-point-descriptor>\n<id>p5g-internal-mgmt-net</id>\n<layer-protocol>IPv4</layer-protocol>\n<management xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\"/>\n</external-connection-point-descriptor>\n<deployment-flavor>\n<id>lattice</id>\n<vdu-profile>\n<vdu>LATTICE</vdu>\n<min-number-of-instances>1</min-number-of-instances>\n<max-number-of-instances>1</max-number-of-instances>\n</vdu-profile>\n<instantiation-level>\n<id>bronze</id>\n<vdu-level>\n<vdu>LATTICE</vdu>\n<number-of-instances>1</number-of-instances>\n</vdu-level>\n</instantiation-level>\n<default-instantiation-level>bronze</default-instantiation-level>\n</deployment-flavor>\n</vnfd>\n<onboarding>\n<esc xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">\n<flavor>\n<name>lattice</name>\n<vnfd>CUPS</vnfd>\n<vdu>LATTICE</vdu>\n<esc-device>\n<name>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.input.variable_workflow_01CCFS0TFY0SY6Ua1Qp5fXe8wbP1DmV7gB2$</name>\n</esc-device>\n</flavor>\n<image>\n<name>lattice_cups</name>\n<vnfd>CUPS</vnfd>\n<vdu>LATTICE</vdu>\n<esc-device>\n<name>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.input.variable_workflow_01CCFS0TFY0SY6Ua1Qp5fXe8wbP1DmV7gB2$</name>\n</esc-device>\n</image>\n</esc>\n</onboarding>\n</nfvo>",
+                  "continue_on_failure": false,
+                  "datastore": "running",
+                  "defaultoperation": "merge",
+                  "display_name": "LATTICE - Image & Flavor",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  },
+                  "testoption": "set"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01CCJE86D6F2O5KnKPlEDGP33Na2C00TrvQ",
+                "name": "While Loop",
+                "title": "LATTICE Image Check",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "LATTICE Image Check",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01CCJE8BTTZ7N4mZmMXrR5WVbvN1qKX3yGF",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXQQU1JoLmSl86eZm4G9t9y27Rt$",
+                        "operator": "eq",
+                        "right_operand": true
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01CSJ0KM8NQCP5ex2qhXzTefjB1oP2ZyGYw",
+                        "name": "Get LATTICE image status",
+                        "title": "Get LATTICE image status",
+                        "type": "workflow.sub_workflow",
+                        "base_type": "subworkflow",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Get LATTICE image status",
+                          "input": {
+                            "variable_workflow_01C6FE275D9Z15PC5mTbdujG2FSuPPktIUo": true,
+                            "variable_workflow_01C6FEK3J0GSU5b9QA3kE1p8OMxpwYaUQSY": "/nfvo/onboarding/esc/image-result[name='lattice_cups']/status",
+                            "variable_workflow_01C6FGE5IPM375TK6Jf0tZV9pTBX47ZiTcb": ""
+                          },
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "target_type": "01AZGH23JYXWF4Dy5t9N9OFZ9wBmPIj8Kr8",
+                            "use_workflow_target": true
+                          },
+                          "workflow_id": "definition_workflow_01C6FCXHA3W015hBwO7Qy2mEf0Q0KXrT3Bt"
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01CCJE8I2N2H709LrvqD1Gv0tmALIJcPMiM",
+                        "name": "Condition Block",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_01CCJE8JGPHQV3i34etuz9NSgmtpagiS6h5",
+                            "name": "Condition Branch",
+                            "title": "Condition Branch \"ready\"",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": "$activity.definition_activity_01CSJ0KM8NQCP5ex2qhXzTefjB1oP2ZyGYw.output.variable_workflow_01C6FUY1R6LMF5I0BWpGRNmNwPo8PUhKIuA$",
+                                "operator": "mw",
+                                "right_operand": "*ready*"
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Condition Branch \"ready\"",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01CCJE8LX17EJ4dHmeEnBSTi8WKG2AF0E7J",
+                                "name": "Break",
+                                "title": "Break",
+                                "type": "logic.break",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Break",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01CCJE8NFDWP228KEYcoIbvhFxGF7Sg67of",
+                        "name": "Sleep",
+                        "title": "Sleep",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep",
+                          "skip_execution": false,
+                          "sleep_interval": 15
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01CSFKW4Q1G5W33blMGDb7KIVABsIPVbmEl",
+            "name": "Group",
+            "title": "UPF",
+            "type": "logic.group",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "UPF",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01CCJE3N810JB018TctxuWUsgV2abalyQlz",
+                "name": "<edit-config>",
+                "title": "UPF - Image & Flavor",
+                "type": "netconf.editConfig",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "config": "<nfvo xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo\">\n<vnfd>\n<id>CUPS</id>\n<provider>Cisco</provider>\n<product-name>CUPS</product-name>\n<version>1</version>\n<product-info-description>CUPS</product-info-description>\n<vdu>\n<id>UPF</id>\n<internal-connection-point-descriptor>\n<id>nic1</id>\n<external-connection-point-descriptor>p5g-internal-mgmt-net</external-connection-point-descriptor>\n<layer-protocol>IPv4</layer-protocol>\n<interface-id xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">0</interface-id>\n</internal-connection-point-descriptor>\n<internal-connection-point-descriptor>\n<id>nic2</id>\n<external-connection-point-descriptor>p5g-sdwan-service</external-connection-point-descriptor>\n<layer-protocol>IPv4</layer-protocol>\n<interface-id xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">1</interface-id>\n</internal-connection-point-descriptor>\n<virtual-compute-descriptor>upf</virtual-compute-descriptor>\n<virtual-storage-descriptor>upf</virtual-storage-descriptor>\n<software-image-descriptor>\n<container-format>bare</container-format>\n<disk-format>qcow2</disk-format>\n<image>http://10.49.234.154/p5g/images/upf/openstack/UPF.qcow2</image>\n<image-name xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-nfvis\">upf_cups</image-name>\n</software-image-descriptor>\n</vdu>\n<virtual-compute-descriptor>\n<id>upf</id>\n<virtual-memory>\n<virtual-memory-size>32.0</virtual-memory-size>\n</virtual-memory>\n<virtual-cpu>\n<number-of-virtual-cpus>6</number-of-virtual-cpus>\n</virtual-cpu>\n</virtual-compute-descriptor>\n<virtual-storage-descriptor>\n<id>upf</id>\n<type-of-storage>root</type-of-storage>\n<size-of-storage>8</size-of-storage>\n</virtual-storage-descriptor>\n<external-connection-point-descriptor>\n<id>p5g-sdwan-service</id>\n<layer-protocol>IPv4</layer-protocol>\n</external-connection-point-descriptor>\n<external-connection-point-descriptor>\n<id>p5g-internal-mgmt-net</id>\n<layer-protocol>IPv4</layer-protocol>\n<management xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\"/>\n</external-connection-point-descriptor>\n<deployment-flavor>\n<id>upf</id>\n<vdu-profile>\n<vdu>UPF</vdu>\n<min-number-of-instances>1</min-number-of-instances>\n<max-number-of-instances>1</max-number-of-instances>\n</vdu-profile>\n<instantiation-level>\n<id>bronze</id>\n<vdu-level>\n<vdu>UPF</vdu>\n<number-of-instances>1</number-of-instances>\n</vdu-level>\n</instantiation-level>\n<default-instantiation-level>bronze</default-instantiation-level>\n</deployment-flavor>\n</vnfd>\n<onboarding>\n<esc xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">\n<flavor>\n<name>upf</name>\n<vnfd>CUPS</vnfd>\n<vdu>UPF</vdu>\n<esc-device>\n<name>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.input.variable_workflow_01CCFS0TFY0SY6Ua1Qp5fXe8wbP1DmV7gB2$</name>\n</esc-device>\n</flavor>\n<image>\n<name>upf_central</name>\n<vnfd>CUPS</vnfd>\n<vdu>UPF</vdu>\n<esc-device>\n<name>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.input.variable_workflow_01CCFS0TFY0SY6Ua1Qp5fXe8wbP1DmV7gB2$</name>\n</esc-device>\n</image>\n</esc>\n</onboarding>\n</nfvo>",
+                  "continue_on_failure": false,
+                  "datastore": "running",
+                  "defaultoperation": "merge",
+                  "display_name": "UPF - Image & Flavor",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  },
+                  "testoption": "set"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01CCJJRBLNHXX4S3TBRqRz5mFd4XxfQiQED",
+                "name": "While Loop",
+                "title": "UPF Image Check",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "UPF Image Check",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01CCJJRDZSV3W39TiyZEzc8maOtY5p90gA0",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXQQU1JoLmSl86eZm4G9t9y27Rt$",
+                        "operator": "eq",
+                        "right_operand": true
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01CSJ1WFICUU037bikO5oBCl01pOhRwgyJk",
+                        "name": "Get UPF image status",
+                        "title": "Get UPF image status",
+                        "type": "workflow.sub_workflow",
+                        "base_type": "subworkflow",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Get UPF image status",
+                          "input": {
+                            "variable_workflow_01C6FE275D9Z15PC5mTbdujG2FSuPPktIUo": true,
+                            "variable_workflow_01C6FEK3J0GSU5b9QA3kE1p8OMxpwYaUQSY": "/nfvo/onboarding/esc/image-result[name='upf_cups']/status",
+                            "variable_workflow_01C6FGE5IPM375TK6Jf0tZV9pTBX47ZiTcb": ""
+                          },
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "target_type": "01AZGH23JYXWF4Dy5t9N9OFZ9wBmPIj8Kr8",
+                            "use_workflow_target": true
+                          },
+                          "workflow_id": "definition_workflow_01C6FCXHA3W015hBwO7Qy2mEf0Q0KXrT3Bt"
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01CCJJRIWEM0D7YM24YXOeHQ7VVjYyre0Kp",
+                        "name": "Condition Block",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_01CCJJRKLRCCY0foiZiwv8YKmbVVsulQ33Z",
+                            "name": "Condition Branch",
+                            "title": "Condition Branch \"ready\"",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": "$activity.definition_activity_01CSJ1WFICUU037bikO5oBCl01pOhRwgyJk.output.variable_workflow_01C6FUY1R6LMF5I0BWpGRNmNwPo8PUhKIuA$",
+                                "operator": "mw",
+                                "right_operand": "*ready*"
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Condition Branch \"ready\"",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01CCJJRN2T9OV2GenfgjSGtyQV98bRBBJVJ",
+                                "name": "Break",
+                                "title": "Break",
+                                "type": "logic.break",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Break",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01CCJJRPQC2F56XfNxtKDBzoodefkcwl5GV",
+                        "name": "Sleep",
+                        "title": "Sleep",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep",
+                          "skip_execution": false,
+                          "sleep_interval": 15
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01CCRJ18POZ8Q6gStExC8kWg9d6XWqvNDJZ",
+        "name": "Group",
+        "title": "Create instances",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Create instances",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01CG5SNRZ1YDF1WjKSZoas0SXzwcBqyln7a",
+            "name": "Group",
+            "title": "VPCSI",
+            "type": "logic.group",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "VPCSI",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01CCRIKITGTW643MeGnM8YRNcvr4JVFvxwD",
+                "name": "<edit-config>",
+                "title": "VPCSI - Create Instance",
+                "type": "netconf.editConfig",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "config": "<nfvo xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo\">\n<vnf-info>\n<esc xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">\n<vnf-deployment>\n<tenant>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFY40W6lIGUo5MJXvWIGANThjh2L$</tenant>\n<deployment-name>P5G_CUPS_CP_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</deployment-name>\n<esc>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.input.variable_workflow_01CCFS0TFY0SY6Ua1Qp5fXe8wbP1DmV7gB2$</esc>\n<username>admin</username>\n<vnf-info>\n<name>VPCSI</name>\n<vnfd>CUPS</vnfd>\n<vnfd-flavor>vpcsi</vnfd-flavor>\n<instantiation-level>bronze</instantiation-level>\n<vdu>\n<id>VPCSI</id>\n<bootup-time>300</bootup-time>\n<recovery-wait-time>120</recovery-wait-time>\n<image-name>upf_cups</image-name>\n<flavor-name>vpcsi</flavor-name>\n<day0>\n<destination>staros_config.txt</destination>\n<url>http://10.49.234.154/p5g/day0/cups/vpcsi_day0_template.cfg</url>\n<variable>\n<name>MGMT_ADDRESS</name>\n<value>10.0.33.$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</value>\n</variable>\n<variable>\n<name>GW_ADDRESS</name>\n<value>10.0.32.254</value>\n</variable>\n<variable>\n<name>HOSTNAME</name>\n<value>CUPS_vpcsi</value>\n</variable>\n<variable>\n<name>LOGIN</name>\n<value>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CG5NEJ4GF9V1GRytsQVpt6Kz8H2vwaddC$</value>\n</variable>\n<variable>\n<name>PASSWORD</name>\n<value>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CG5OFWPT2LU1xnHiE3zXXkqY9utjLI69r$</value>\n</variable>\n</day0>\n<host-key-verification-type>none</host-key-verification-type>\n<internal-connection-point>\n<id>nic1</id>\n<connection-point-address>\n<address>10.0.33.$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</address>\n</connection-point-address>\n<port-security>false</port-security>\n</internal-connection-point>\n<internal-connection-point>\n<id>nic2</id>\n<connection-point-address>\n<address>192.168.9.7</address>\n</connection-point-address>\n<port-security>false</port-security>\n</internal-connection-point>\n<internal-connection-point>\n<id>nic3</id>\n<connection-point-address>\n<address>192.168.31.7</address>\n</connection-point-address>\n<port-security>false</port-security>\n</internal-connection-point>\n</vdu>\n<vnfd-connection-point>\n<id>p5g-internal-mgmt-net</id>\n<network-name>p5g-internal-mgmt-net</network-name>\n</vnfd-connection-point>\n<vnfd-connection-point>\n<id>p5g-vpc-service</id>\n<network-name>p5g-vpc-service-$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</network-name>\n</vnfd-connection-point>\n<vnfd-connection-point>\n<id>p5g-sdwan-service</id>\n<network-name>p5g-sdwan-service-$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</network-name>\n</vnfd-connection-point>\n</vnf-info>\n</vnf-deployment>\n</esc>\n</vnf-info>\n</nfvo>",
+                  "continue_on_failure": false,
+                  "datastore": "running",
+                  "display_name": "VPCSI - Create Instance",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01CD7SQ5QJH8X6BUyu3DZnqflkxbU7oQxdb",
+                "name": "While Loop",
+                "title": "VPCSI Instance Check",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "VPCSI Instance Check",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01CD7SQ809AU93jAb51HlpgynYLuZaHsNQr",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXQQU1JoLmSl86eZm4G9t9y27Rt$",
+                        "operator": "eq",
+                        "right_operand": true
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01CSJ45MJV2UP1gbC4mJ7WCA2HFFmW1IvnQ",
+                        "name": "Get VPCSI instance status",
+                        "title": "Get VPCSI instance status",
+                        "type": "workflow.sub_workflow",
+                        "base_type": "subworkflow",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Get VPCSI instance status",
+                          "input": {
+                            "variable_workflow_01C6FE275D9Z15PC5mTbdujG2FSuPPktIUo": true,
+                            "variable_workflow_01C6FEK3J0GSU5b9QA3kE1p8OMxpwYaUQSY": "/nfvo/vnf-info/esc/vnf-deployment-result[deployment-name='P5G_CUPS_CP_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$']/vdu[vnf-info='VPCSI']/vm-device/status",
+                            "variable_workflow_01C6FGE5IPM375TK6Jf0tZV9pTBX47ZiTcb": ""
+                          },
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "target_type": "01AZGH23JYXWF4Dy5t9N9OFZ9wBmPIj8Kr8",
+                            "use_workflow_target": true
+                          },
+                          "workflow_id": "definition_workflow_01C6FCXHA3W015hBwO7Qy2mEf0Q0KXrT3Bt"
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01CD7SQCHHQ945OhvevOJhtiadqFNJNodpz",
+                        "name": "Condition Block",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_01CD7SQDQN71419LtsdBQkx3RrHUeLjn1yB",
+                            "name": "Condition Branch",
+                            "title": "Condition Branch \"ready\"",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": "$activity.definition_activity_01CSJ45MJV2UP1gbC4mJ7WCA2HFFmW1IvnQ.output.variable_workflow_01C6FUY1R6LMF5I0BWpGRNmNwPo8PUhKIuA$",
+                                "operator": "mw",
+                                "right_operand": "*ready*"
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Condition Branch \"ready\"",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01CD7SQFVRFHE3URsiBzRxmR0TUNfHyzKpF",
+                                "name": "Break",
+                                "title": "Break",
+                                "type": "logic.break",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Break",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01CD7SQH3OXB55DPSEcdMRsF2MoCWT7R2CM",
+                        "name": "Sleep",
+                        "title": "Sleep",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep",
+                          "skip_execution": false,
+                          "sleep_interval": 15
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01CG67ZR90D653LAh8VBmYI1KuySPY6NqWg",
+                "name": "Group",
+                "title": "Onboard vpcsi device",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Onboard vpcsi device",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01CG61FHDKVV3574NqaoaH9w7UKpOoGfC3v",
+                    "name": "<edit-config>",
+                    "title": "vpcsi authgroup",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<authgroups>\n<group>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<default-map>\n<remote-name>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CG5NEJ4GF9V1GRytsQVpt6Kz8H2vwaddC$</remote-name>\n<remote-password>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CG5OFWPT2LU1xnHiE3zXXkqY9utjLI69r$</remote-password>\n</default-map>\n</group>\n</authgroups>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "vpcsi authgroup",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CS1YHIU3RRS531nojxfc6i4QmxOpVIWJY",
+                    "name": "<edit-config>",
+                    "title": "Add vpcsi device",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<address>10.0.33.$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</address>\n<authgroup>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</authgroup>\n<device-type>\n<cli>\n<ned-id xmlns:cisco-staros-id=\"http://tail-f.com/ned/cisco-staros-id\">cisco-staros-id:cisco-staros</ned-id>\n<protocol>ssh</protocol>\n</cli>\n</device-type>\n<state>\n<admin-state>unlocked</admin-state>\n</state>\n<ned-settings>\n<cisco-staros xmlns=\"http://tail-f.com/ned/cisco-staros-meta\">\n<behaviour>\n<config-warning-ignore>\n<warning>.* Duplicate PLMN.*</warning>\n</config-warning-ignore>\n<config-warning-ignore>\n<warning>.* Standby.*</warning>\n</config-warning-ignore><config-warning-ignore>\n<warning>.* network-global-mme-id-mgmt-db.*</warning>\n</config-warning-ignore>\n<config-warning-ignore>\n<warning>.* unrecognized keyword*</warning>\n</config-warning-ignore>\n<config-warning-ignore>\n<warning>.*exited from config mode*</warning>\n</config-warning-ignore>\n<config-warning-ignore>\n<warning>.*Please reset chassis key or try again!*</warning>\n</config-warning-ignore>\n</behaviour>\n</cisco-staros>\n</ned-settings>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Add vpcsi device",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CS2BDWMK4YH1KOhrIsZSQpvAKbmX5GMYa",
+                    "name": "<action>",
+                    "title": "vpcsi fetch keys",
+                    "type": "netconf.action",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "vpcsi fetch keys",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      },
+                      "type": "yang",
+                      "xml": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<ssh>\n<fetch-host-keys/>\n</ssh>\n</device>\n</devices>"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CS2CHJL1GZY2B4gVOW06UxcVuUvPRXHX5",
+                    "name": "<action>",
+                    "title": "vpcsi sync-from",
+                    "type": "netconf.action",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "vpcsi sync-from",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      },
+                      "type": "yang",
+                      "xml": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<sync-from/>\n</device>\n</devices>"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01CG68ENJR0644K8QxyFchMwoUunYuj6gs1",
+                "name": "Group",
+                "title": "VPCSI Day1 configuration",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "VPCSI Day1 configuration",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01CG6982BOLZW6jCGVVstjb8hVMF9gmGl51",
+                    "name": "<edit-config>",
+                    "title": "Day1 - Step 1",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<config>\n<autoconfirm xmlns=\"http://tail-f.com/ned/cisco-staros\"/>\n<aaa xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<large-configuration/>\n</aaa>\n<system xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<hostname>vpcsi</hostname>\n</system>\n<clock xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<timezone>europe-central</timezone>\n</clock>\n<iftask xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<restart-enable/>\n</iftask>\n<require xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<diameter-proxy>\n<single/>\n</diameter-proxy>\n<active-charging>\n<active-charging/>\n</active-charging>\n</require>\n<timestamps xmlns=\"http://tail-f.com/ned/cisco-staros\"/>\n<lte-policy xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<subscriber-map>\n<name>smap</name>\n<precedence>\n<number>20</number>\n<match-criteria>\n<imsi>\n<mcc>123</mcc>\n<mnc>45</mnc>\n<msin/>\n<first>6000000000</first>\n<last>6999999999</last>\n<operator-policy-name>lattice_op</operator-policy-name>\n</imsi>\n</match-criteria>\n</precedence>\n<precedence>\n<number>150</number>\n<match-criteria>\n<all>\n<operator-policy-name>\n<name>op_policy</name>\n</operator-policy-name>\n</all>\n</match-criteria>\n</precedence>\n</subscriber-map>\n<tai-mgmt-db>\n<name>sgw</name>\n<tai-mgmt-obj>\n<name>sgw</name>\n<tai>\n<mcc>123</mcc>\n<mnc>45</mnc>\n<tac>11</tac>\n<tac>12</tac>\n<tac>21</tac>\n<tac>22</tac>\n</tai>\n<lai>\n<mcc>123</mcc>\n<mnc>45</mnc>\n<lac>2</lac>\n</lai>\n<sgw-address>\n<address>192.168.31.120</address>\n<s5-s8-protocol>gtp</s5-s8-protocol>\n<weight>1</weight>\n</sgw-address>\n</tai-mgmt-obj>\n</tai-mgmt-db>\n</lte-policy>\n<task xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<facility>\n<chmgr>\n<max>1</max>\n<per-sesscard-count>0</per-sesscard-count>\n</chmgr>\n</facility>\n</task>\n<gtpp xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<single-source>\n</single-source>\n</gtpp>\n<ssh xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<key-gen>\n<wait-time>0</wait-time>\n</key-gen>\n</ssh>\n<mme-manager xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<congestion-control>\n<cpu-utilization>false</cpu-utilization>\n</congestion-control>\n</mme-manager>\n</config>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Day1 - Step 1",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CG6AD3E0QZO6NdqjYYdEwFLLLXS6uJyMP",
+                    "name": "<edit-config>",
+                    "title": "Day1 - Step 2",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<config>\n<context xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<name>CPF</name>\n<interface>\n<name>Gx</name>\n<mode>loopback</mode>\n<ip>\n<address>\n<address>192.168.9.6</address>\n<subnetmask>255.255.255.255</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>MME</name>\n<mode>loopback</mode>\n<ip>\n<address>\n<address>192.168.31.4</address>\n<subnetmask>255.255.255.255</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>PGWIn</name>\n<mode>loopback</mode>\n<ip>\n<address>\n<address>192.168.31.10</address>\n<subnetmask>255.255.255.255</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>SGWout</name>\n<mode>loopback</mode>\n<ip>\n<address>\n<address>192.168.31.9</address>\n<subnetmask>255.255.255.255</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>Sx</name>\n<mode>loopback</mode>\n<ip>\n<address>\n<address>192.168.31.11</address>\n<subnetmask>255.255.255.255</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>mme-s11-2</name>\n<mode>loopback</mode>\n<ip>\n<address>\n<address>192.168.31.122</address>\n<subnetmask>255.255.255.255</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>port1_10</name>\n<ip>\n<address>\n<address>192.168.9.7</address>\n<subnetmask>255.255.255.0</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>port1_11</name>\n<ip>\n<address>\n<address>192.168.31.7</address>\n<subnetmask>255.255.255.0</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>s1-mme-test</name>\n<mode>loopback</mode>\n<ip>\n<address>\n<address>192.168.31.111</address>\n<subnetmask>255.255.255.255</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>s11</name>\n<mode>loopback</mode>\n<ip>\n<address>\n<address>192.168.31.120</address>\n<subnetmask>255.255.255.255</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>s6a</name>\n<mode>loopback</mode>\n<ip>\n<address>\n<address>192.168.9.4</address>\n<subnetmask>255.255.255.255</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>sgs</name>\n<mode>loopback</mode>\n<ip>\n<address>\n<address>192.168.9.199</address>\n<subnetmask>255.255.255.255</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>test</name>\n<mode>loopback</mode>\n<ip>\n<address>\n<address>5.5.5.5</address>\n<subnetmask>255.255.255.255</subnetmask>\n</address>\n</ip>\n</interface>\n<gtpp>\n<group>\n<name>default</name>\n</group>\n</gtpp>\n<gtpu-service>\n<name>SxU</name>\n<bind>\n<ipv4-address>\n<address>192.168.31.11</address>\n<bearer-type>all</bearer-type>\n</ipv4-address>\n</bind>\n</gtpu-service>\n<sx-service>\n<name>sx-srv</name>\n<instance-type>controlplane</instance-type>\n<bind>\n<ipv4-address>192.168.31.11</ipv4-address>\n</bind>\n</sx-service>\n<pgw-service>\n<name>pgw-srv</name>\n<associate>\n<qci-qos-mapping>qos_cups</qci-qos-mapping>\n<egtp-service>\n<name>PGWEGTPC</name>\n</egtp-service>\n</associate>\n<egtp>\n<create-session-rsp>\n<apn-ambr-always-include>true</apn-ambr-always-include>\n</create-session-rsp>\n</egtp>\n<plmn>\n<id>\n<mcc>123</mcc>\n<mnc>45</mnc>\n</id>\n</plmn>\n</pgw-service>\n<sgw-service>\n<name>sgw-srv</name>\n<associate>\n<ingress>\n<egtp-service>SGWEGTPC_ingress</egtp-service>\n</ingress>\n<egress-proto>\n<gtp-pmip/>\n<egress-context>CPF</egress-context>\n<egtp-service>SGWEGTPC_egress</egtp-service>\n</egress-proto>\n</associate>\n<plmn>\n<mcc>123</mcc>\n<mnc>45</mnc>\n<id/>\n</plmn>\n</sgw-service>\n<saegw-service>\n<name>saegw-srv</name>\n<associate>\n<sgw-service>sgw-srv</sgw-service>\n<pgw-service>pgw-srv</pgw-service>\n<gtpu-service>\n<name>SxU</name>\n<up-tunnel/>\n</gtpu-service>\n<sx-service>sx-srv</sx-service>\n</associate>\n</saegw-service>\n<egtp-service>\n<name>PGWEGTPC</name>\n<interface-type>\n<type>interface-pgw-ingress</type>\n</interface-type>\n<gtpc>\n<bind>\n<ipv4-address>192.168.31.10</ipv4-address>\n</bind>\n</gtpc>\n<cups-enabled/>\n</egtp-service>\n<egtp-service>\n<name>S11-MME</name>\n<interface-type>\n<type>interface-mme</type>\n</interface-type>\n<gtpc>\n<bind>\n<ipv4-address>192.168.31.4</ipv4-address>\n</bind>\n</gtpc>\n</egtp-service>\n<egtp-service>\n<name>S11-MME-2</name>\n<interface-type>\n<type>interface-mme</type>\n</interface-type>\n<gtpc>\n<bind>\n<ipv4-address>192.168.31.122</ipv4-address>\n</bind>\n</gtpc>\n</egtp-service>\n<egtp-service>\n<name>SGWEGTPC_egress</name>\n<interface-type>\n<type>interface-sgw-egress</type>\n</interface-type>\n<gtpc>\n<bind>\n<ipv4-address>192.168.31.9</ipv4-address>\n</bind>\n</gtpc>\n<cups-enabled/>\n</egtp-service>\n<egtp-service>\n<name>SGWEGTPC_ingress</name>\n<interface-type>\n<type>interface-sgw-ingress</type>\n</interface-type>\n<gtpc>\n<bind>\n<ipv4-address>192.168.31.120</ipv4-address>\n</bind>\n</gtpc>\n<cups-enabled/>\n</egtp-service>\n<sgs-service>\n<name>sgs-svc</name>\n<bind>\n<ipv4-address>\n<address>192.168.9.199</address>\n</ipv4-address>\n</bind>\n<sctp>\n<port>29118</port>\n</sctp>\n<tac-to-lac-mapping>\n<tac>\n<value>21</value>\n<map-to>\n<lac>2</lac>\n</map-to>\n</tac>\n</tac-to-lac-mapping>\n<vlr>\n<name>CSFB-IWF</name>\n<ipv4-address>\n<address>192.168.9.19</address>\n<port>29120</port>\n</ipv4-address>\n</vlr>\n</sgs-service>\n<hss-peer-service>\n<name>HSS</name>\n<diameter>\n<hss-endpoint>\n<endpoint>s6a</endpoint>\n</hss-endpoint>\n</diameter>\n</hss-peer-service>\n<hss-peer-service>\n<name>real-ue</name>\n<diameter>\n<hss-endpoint>\n<endpoint>real-ue</endpoint>\n</hss-endpoint>\n</diameter>\n</hss-peer-service>\n<mme-service>\n<name>MME</name>\n<statistics>\n<collection-mode>enodeb</collection-mode>\n</statistics>\n<mme-id>\n<group-id>32679</group-id>\n<mme-code>40</mme-code>\n</mme-id>\n<associate>\n<egtp-service>\n<name>S11-MME</name>\n<context>CPF</context>\n</egtp-service>\n<hss-peer-service>\n<name>real-ue</name>\n<context>CPF</context>\n</hss-peer-service>\n<sgs-service>\n<name>sgs-svc</name>\n<context>CPF</context>\n</sgs-service>\n<tai-mgmt-db>sgw</tai-mgmt-db>\n<subscriber-map>smap</subscriber-map>\n</associate>\n<plmn-id>\n<mcc>123</mcc>\n<mnc>45</mnc>\n</plmn-id>\n<bind>\n<s1-mme>\n<ipv4-address>\n<address>192.168.31.111</address>\n</ipv4-address>\n</s1-mme>\n</bind>\n<pgw-address>192.168.31.10</pgw-address>\n</mme-service>\n<ims-auth-service>\n<name>Gx</name>\n<policy-control>\n<custom-reauth-trigger>\n<apn-ambr-mod-failure/>\n<qos-change/>\n<default-bearer-qos-change/>\n<default-bearer-qos-mod-failure/>\n<resource-modification-request/>\n<ue-ip-addr-allocate/>\n<ue-ip-addr-release/>\n</custom-reauth-trigger>\n<diameter>\n<origin>\n<endpoint>Gx</endpoint>\n</origin>\n<host-select>\n<row-precedence>\n<precedence>1</precedence>\n<table>\n<index>1</index>\n<primary>\n<host>gx.cisco.com</host>\n</primary>\n</table>\n</row-precedence>\n<table>\n<index>1</index>\n<algorithm>\n<round-robin/>\n</algorithm>\n</table>\n</host-select>\n<dictionary>r8-gx-standard</dictionary>\n</diameter>\n</policy-control>\n</ims-auth-service>\n<diameter>\n<endpoint>\n<name>Gx</name>\n<origin>\n<realm>\n<name>cisco.com</name>\n</realm>\n<host>\n<name>pgw</name>\n<address>192.168.9.6</address>\n</host>\n</origin>\n<use-proxy/>\n<peer>\n<name>gx.cisco.com</name>\n<realm>cisco.com</realm>\n<address>192.168.9.19</address>\n<port>3870</port>\n</peer>\n</endpoint>\n<endpoint>\n<name>real-ue</name>\n<origin>\n<host>\n<name>mmes6a02.epc.mnc45.mcc123.3gpppnetwork.org</name>\n<address>192.168.9.4</address>\n</host>\n</origin>\n<use-proxy/>\n<watchdog-timeout>false</watchdog-timeout>\n<peer>\n<name>hss.epc.mnc45.mcc123.3gppnetwork.org</name>\n<realm>epc.mnc456.mcc123.3gppnetwork.org</realm>\n<address>192.168.9.19</address>\n<port>3875</port>\n<sctp/>\n</peer>\n</endpoint>\n<endpoint>\n<name>s6a</name>\n<origin>\n<realm>\n<name>epc.mnc456.mcc123.3gpppnetwork.org</name>\n</realm>\n<host>\n<name>mmes6a.epc.mnc456.mcc123.3gpppnetwork.org</name>\n<address>192.168.9.4</address>\n</host>\n</origin>\n<use-proxy/>\n<watchdog-timeout>false</watchdog-timeout>\n<peer>\n<name>hss.epc.mnc456.mcc123.3gppnetwork.org</name>\n<realm>epc.mnc456.mcc123.3gppnetwork.org</realm>\n<address>192.168.9.19</address>\n<sctp/>\n</peer>\n</endpoint>\n</diameter>\n<aaa>\n<group>\n<name>default</name>\n</group>\n</aaa>\n<subscriber>\n<default>\n</default>\n</subscriber>\n</context>\n</config>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Day1 - Step 2",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CG6AOEJKQHS1PoaQXdKcyBRnSv5pznToq",
+                    "name": "<edit-config>",
+                    "title": "Day1 - Step 3",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<config><context xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<name>ISP</name>\n<cups>\n<enable/>\n<chunk-threshold-timer>30</chunk-threshold-timer>\n<min-chunks-threshold-per-pool>50</min-chunks-threshold-per-pool>\n</cups>\n<interface>\n<name>SGi</name>\n<ip>\n<address>\n<address>192.168.9.249</address>\n<subnetmask>255.255.255.248</subnetmask>\n</address>\n</ip>\n</interface>\n<interface>\n<name>test</name>\n<mode>loopback</mode>\n<ip>\n<address>\n<address>111.11.11.11</address>\n<subnetmask>255.255.255.255</subnetmask>\n</address>\n</ip>\n</interface>\n<gtpp>\n<group>\n<name>default</name>\n</group>\n</gtpp>\n<aaa>\n<group>\n<name>default</name>\n</group>\n</aaa>\n<subscriber>\n<default>\n</default>\n</subscriber>\n</context>\n</config>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Day1 - Step 3",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CG6APRL0SK54XxdyDlQNDZNMxrXeV19ww",
+                    "name": "<edit-config>",
+                    "title": "Day1 - Step 4",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<config>\n<user-plane-group xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<name>default</name>\n</user-plane-group>\n</config>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Day1 - Step 4",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CG6AQVPKZJZ6hNlFkZp32ofgfdvmWVspS",
+                    "name": "<edit-config>",
+                    "title": "Day1 - Step 5",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<config>\n<port xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<ethernet>\n<slot>1</slot>\n<port>10</port>\n<shutdown>false</shutdown>\n<bind>\n<interface>\n<interface>port1_10</interface>\n<context>CPF</context>\n</interface>\n</bind>\n</ethernet>\n<ethernet>\n<slot>1</slot>\n<port>11</port>\n<shutdown>false</shutdown>\n<bind>\n<interface>\n<interface>port1_11</interface>\n<context>CPF</context>\n</interface>\n</bind>\n</ethernet>\n</port>\n</config>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Day1 - Step 5",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CG6ASKDIHHR68bEDKer1sTf2SnA6nIzIc",
+                    "name": "<edit-config>",
+                    "title": "Day1 - Step 6",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<config>\n<call-control-profile xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<name>cc_profile</name>\n<associate>\n<hss-peer-service>\n<service>HSS</service>\n<interface>s13-interface</interface>\n</hss-peer-service>\n</associate>\n<authenticate>\n<attach>\n</attach>\n</authenticate>\n</call-control-profile>\n<call-control-profile xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<name>lattice_cc</name>\n<associate>\n<hss-peer-service>\n<service>HSS</service>\n<interface>s13-interface</interface>\n</hss-peer-service>\n</associate>\n</call-control-profile>\n<call-control-profile xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<name>real_ue_cc</name>\n<associate>\n<hss-peer-service>\n<service>real-ue</service>\n<interface>s13-interface</interface>\n</hss-peer-service>\n</associate>\n</call-control-profile>\n</config>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Day1 - Step 6",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CG6AUNJBTQR3UeAue9cjq37eSylDVkIZn",
+                    "name": "<edit-config>",
+                    "title": "Day1 - Step 7",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<config>\n<operator-policy xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<name>\n<name>lattice_op</name>\n<associate>\n<call-control-profile>lattice_cc</call-control-profile>\n</associate>\n</name>\n<name>\n<name>op_policy</name>\n<associate>\n<call-control-profile>cc_profile</call-control-profile>\n</associate>\n</name>\n<name>\n<name>real_ue_op</name>\n<associate>\n<call-control-profile>real_ue_cc</call-control-profile>\n</associate>\n</name>\n</operator-policy>\n</config>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Day1 - Step 7",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CG6AYJJIDAL318zgbqOyLfbnqi9G5wFW5",
+                    "name": "<edit-config>",
+                    "title": "Day1 - Step 8",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<config>\n<peer-profile xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<service-type>pgw-access</service-type>\n<default-list>\n<name>default</name>\n</default-list>\n</peer-profile>\n<peer-profile xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<service-type>sgw-access</service-type>\n<default-list>\n<name>default</name>\n</default-list>\n</peer-profile>\n<peer-profile xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<service-type>sgw-network</service-type>\n<default-list>\n<name>default</name>\n</default-list>\n</peer-profile>\n</config>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Day1 - Step 8",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CYRLSJPR1HZ3ljXysR3HoyOXZkab5oN72",
+                    "name": "<edit-config>",
+                    "title": "Day1 - Step 9",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<config>\n<lte-policy xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<tai-mgmt-db>\n<name>sgw</name>\n<tai-mgmt-obj>\n<name>sgw</name>\n<tai>\n<mcc>123</mcc>\n<mnc>45</mnc>\n<tac>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$0</tac>\n</tai>\n</tai-mgmt-obj>\n</tai-mgmt-db>\n</lte-policy>\n<context xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<name>ISP</name>\n<ip>\n<pool>\n<name>saegw$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$0</name>\n<ip-address>10.0.0.32</ip-address>\n<subnet-mask>255.255.255.224</subnet-mask>\n<pool-type>public</pool-type>\n<pool-priority>0</pool-priority>\n<group-name>saegw_pool</group-name>\n<chunk-size>16</chunk-size>\n</pool>\n</ip>\n<apn>\n<name>customer$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<active-charging>\n<rulebase>rulebase</rulebase>\n</active-charging>\n<ims-auth-service>Gx</ims-auth-service>\n<bearer-control-mode>\n<none>\n<prefer-local-value/>\n</none>\n</bearer-control-mode>\n<selection-mode>\n<subscribed/>\n<sent-by-ms/>\n<chosen-by-sgsn/>\n</selection-mode>\n<virtual-apn>\n<preference>\n<priority>10</priority>\n<apn>customer$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$-site0</apn>\n<tracking-area-code-range>\n<from>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$0</from>\n<to>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$0</to>\n</tracking-area-code-range>\n</preference>\n</virtual-apn>\n<ip>\n<access-group>\n<acl-name>acl_ECS</acl-name>\n<in/>\n<out/>\n</access-group>\n<context-name>ISP</context-name>\n</ip>\n</apn>\n<apn>\n<name>customer$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$-site0</name>\n<active-charging>\n<rulebase>rulebase</rulebase>\n</active-charging>\n<ims-auth-service>Gx</ims-auth-service>\n<bearer-control-mode>\n<none>\n<prefer-local-value/>\n</none>\n</bearer-control-mode>\n<selection-mode>\n<subscribed/>\n<sent-by-ms/>\n<chosen-by-sgsn/>\n</selection-mode>\n<ip>\n<access-group>\n<acl-name>acl_ECS</acl-name>\n<in/>\n<out/>\n</access-group>\n<context-name>ISP</context-name>\n<address>\n<pool>\n<name>saegw$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$0</name>\n</pool>\n</address>\n</ip>\n<user-plane-group>customer$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$-site0-upf</user-plane-group>\n</apn>\n</context>\n<user-plane-group xmlns=\"http://tail-f.com/ned/cisco-staros\">\n<name>customer$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$-site0-upf</name>\n<peer-node-id>\n<ipv4-address>\n<address>192.168.31.22</address>\n</ipv4-address>\n</peer-node-id>\n</user-plane-group>\n</config>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "description": "APN configuration for central site",
+                      "display_name": "Day1 - Step 9",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01CGHZN3L6RZI2ltFufLaT3hjbqIhljwoGK",
+            "name": "Group",
+            "title": "LATTICE HSS/PCRF",
+            "type": "logic.group",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "LATTICE HSS/PCRF",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01CD5MMSXQJV21rveYAElyh2wyl3CO9lGuU",
+                "name": "<edit-config>",
+                "title": "LATTICE",
+                "type": "netconf.editConfig",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "config": "<nfvo xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo\">\n<vnf-info>\n<esc xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">\n<vnf-deployment>\n<tenant>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFY40W6lIGUo5MJXvWIGANThjh2L$</tenant>\n<deployment-name>P5G_CUPS_CP_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</deployment-name>\n<esc>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.input.variable_workflow_01CCFS0TFY0SY6Ua1Qp5fXe8wbP1DmV7gB2$</esc>\n<username>admin</username>\n<vnf-info>\n<name>LATTICE</name>\n<vnfd>CUPS</vnfd>\n<vnfd-flavor>lattice</vnfd-flavor>\n<instantiation-level>bronze</instantiation-level>\n<vdu>\n<id>LATTICE</id>\n<bootup-time>300</bootup-time>\n<recovery-wait-time>120</recovery-wait-time>\n<image-name>lattice_cups</image-name>\n<flavor-name>lattice</flavor-name>\n<day0>\n<destination>--user-data</destination>\n<url>http://10.49.234.154/p5g/day0/cups/hss_pcrf_day0_template.cfg</url>\n<variable>\n<name>Gx_PCRF_IP_ADDRESS</name>\n<value>192.168.9.19</value>\n</variable>\n<variable>\n<name>Gx_PCRF_PORT</name>\n<value>3870</value>\n</variable>\n<variable>\n<name>S6a_HSS_IP_ADDRESS</name>\n<value>192.168.9.19</value>\n</variable>\n<variable>\n<name>S6a_HSS_PORT</name>\n<value>3868</value>\n</variable>\n<variable>\n<name>MNC</name>\n<value>456</value>\n</variable>\n<variable>\n<name>MCC</name>\n<value>123</value>\n</variable>\n<variable>\n<name>PASSWORD</name>\n<value>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CG5OFWPT2LU1xnHiE3zXXkqY9utjLI69r$</value>\n</variable>\n</day0>\n<host-key-verification-type>none</host-key-verification-type>\n<internal-connection-point>\n<id>nic1</id>\n<connection-point-address>\n<address>10.0.34.$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</address>\n</connection-point-address>\n<port-security>false</port-security>\n</internal-connection-point>\n<internal-connection-point>\n<id>nic2</id>\n<connection-point-address>\n<address>192.168.9.19</address>\n</connection-point-address>\n<port-security>false</port-security>\n</internal-connection-point>\n</vdu>\n<vnfd-connection-point>\n<id>p5g-internal-mgmt-net</id>\n<network-name>p5g-internal-mgmt-net</network-name>\n</vnfd-connection-point>\n<vnfd-connection-point>\n<id>p5g-service</id>\n<network-name>p5g-vpc-service-$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</network-name>\n</vnfd-connection-point>\n</vnf-info>\n</vnf-deployment>\n</esc>\n</vnf-info>\n</nfvo>",
+                  "continue_on_failure": false,
+                  "datastore": "running",
+                  "display_name": "LATTICE",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01CD7X3LFZKLQ1VeNxoW83WLEc0IN5wHWWF",
+                "name": "While Loop",
+                "title": "Lattice HSS PCRF Instance Check",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Lattice HSS PCRF Instance Check",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01CD7X3NZ8AIS2LqBkDe3SGyxDMDFWTpTHr",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXQQU1JoLmSl86eZm4G9t9y27Rt$",
+                        "operator": "eq",
+                        "right_operand": true
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01CSJ5NSHL0WD2Xr1T65AzfPApzwsi43wje",
+                        "name": "Get LATTICE instance status",
+                        "title": "Get LATTICE instance status",
+                        "type": "workflow.sub_workflow",
+                        "base_type": "subworkflow",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Get LATTICE instance status",
+                          "input": {
+                            "variable_workflow_01C6FE275D9Z15PC5mTbdujG2FSuPPktIUo": true,
+                            "variable_workflow_01C6FEK3J0GSU5b9QA3kE1p8OMxpwYaUQSY": "/nfvo/vnf-info/esc/vnf-deployment-result[deployment-name='P5G_CUPS_CP_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$']/vdu[vnf-info='LATTICE']/vm-device/status",
+                            "variable_workflow_01C6FGE5IPM375TK6Jf0tZV9pTBX47ZiTcb": ""
+                          },
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "target_type": "01AZGH23JYXWF4Dy5t9N9OFZ9wBmPIj8Kr8",
+                            "use_workflow_target": true
+                          },
+                          "workflow_id": "definition_workflow_01C6FCXHA3W015hBwO7Qy2mEf0Q0KXrT3Bt"
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01CD7X3QRHKVV1L40zgKZ5tX9iHUIH0576k",
+                        "name": "Condition Block",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_01CD7X3RXO96T1jt5JOjGE0qEuelcpXBHh9",
+                            "name": "Condition Branch",
+                            "title": "Condition Branch \"ready\"",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": "$activity.definition_activity_01CSJ5NSHL0WD2Xr1T65AzfPApzwsi43wje.output.variable_workflow_01C6FUY1R6LMF5I0BWpGRNmNwPo8PUhKIuA$",
+                                "operator": "mw",
+                                "right_operand": "*ready*"
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Condition Branch \"ready\"",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01CD7X3T7N6FJ5ZxEwcorRHWiss4U8jgkoq",
+                                "name": "Break",
+                                "title": "Break",
+                                "type": "logic.break",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Break",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01CD7X3UW5O3X7jkG8w36xTvIFZ7BzgJtp7",
+                        "name": "Sleep",
+                        "title": "Sleep",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep",
+                          "skip_execution": false,
+                          "sleep_interval": 15
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01CGI0R5LJ2DB0IoCrdFQaYpEo2qB0mHeOu",
+                "name": "Group",
+                "title": "Onboard Lattice device",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Onboard Lattice device",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01CGI12S0PRZF0yrUJvIRS5cR7pPe7C0T9l",
+                    "name": "<edit-config>",
+                    "title": "Lattice authgroup",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<authgroups>\n<group>\n<name>lattice_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<default-map>\n<remote-name>centos</remote-name>\n<remote-password>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CG5OFWPT2LU1xnHiE3zXXkqY9utjLI69r$</remote-password>\n</default-map>\n</group>\n</authgroups>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Lattice authgroup",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CG63KGDDA2U3DMEz2ZJpFHF5d7wxZ5iNl",
+                    "name": "<edit-config>",
+                    "title": "Add lattice device",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>lattice_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<address>10.0.34.$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</address>\n<authgroup>lattice_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</authgroup>\n<device-type>\n<generic>\n<ned-id xmlns:cisco-lattice=\"http://com/example/ciscolattice\">cisco-lattice:cisco-lattice-id</ned-id>\n</generic>\n</device-type>\n<trace>raw</trace>\n<state>\n<admin-state>unlocked</admin-state>\n</state>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Add lattice device",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01CHX5U851H991GhORq0ZlLmRy0D5ypX0WY",
+                "name": "<action>",
+                "title": "Start Lattice as HSS",
+                "type": "netconf.action",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Start Lattice as HSS",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  },
+                  "type": "yang",
+                  "xml": "<private5g xmlns=\"http://example.com/private5g\">\n<MANAGE xmlns=\"http://example.com/private5g-rpcs\">\n<start-lattice>\n<as>hss</as>\n<lattice-name>lattice_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</lattice-name>\n</start-lattice>\n</MANAGE>\n</private5g>"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01CHX6KZMRXFD4CU6jNTwxengchzFhwOpaR",
+                "name": "Sleep",
+                "title": "Sleep",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep",
+                  "skip_execution": false,
+                  "sleep_interval": 40
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01CRR6KNUXHIP72B0szGeYUnQ9QifQpzLLA",
+                "name": "<action>",
+                "title": "Start Lattice as PCRF",
+                "type": "netconf.action",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Start Lattice as PCRF",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  },
+                  "type": "yang",
+                  "xml": "<private5g xmlns=\"http://example.com/private5g\">\n<MANAGE xmlns=\"http://example.com/private5g-rpcs\">\n<start-lattice>\n<as>pcrf</as>\n<lattice-name>lattice_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</lattice-name>\n</start-lattice>\n</MANAGE>\n</private5g>"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01CGI04WUNK9X3X78TSqVO2EVRseH4xrogl",
+            "name": "Group",
+            "title": "UPF",
+            "type": "logic.group",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "UPF",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01CD71PXLVJ5X2h5eIEo14idKGpq620njQA",
+                "name": "<edit-config>",
+                "title": "UPF",
+                "type": "netconf.editConfig",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "config": "<nfvo xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo\">\n<vnf-info>\n<esc xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">\n<vnf-deployment>\n<tenant>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFY40W6lIGUo5MJXvWIGANThjh2L$</tenant>\n<deployment-name>P5G_CUPS_CP_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</deployment-name>\n<esc>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.input.variable_workflow_01CCFS0TFY0SY6Ua1Qp5fXe8wbP1DmV7gB2$</esc>\n<username>admin</username>\n<vnf-info>\n<name>UPF</name>\n<vnfd>CUPS</vnfd>\n<vnfd-flavor>upf</vnfd-flavor>\n<instantiation-level>bronze</instantiation-level>\n<vdu>\n<id>UPF</id>\n<bootup-time>300</bootup-time>\n<recovery-wait-time>120</recovery-wait-time>\n<image-name>upf_cups</image-name>\n<flavor-name>upf</flavor-name>\n<day0>\n<destination>staros_config.txt</destination>\n<url>http://10.49.234.154/p5g/day0/cups/upf_day0_template.cfg</url>\n<variable>\n<name>MGMT_ADDRESS</name>\n<value>10.0.35.$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</value>\n</variable>\n<variable>\n<name>MGMT_NETMASK</name>\n<value>255.255.224.0</value>\n</variable>\n<variable>\n<name>GW_ADDRESS</name>\n<value>10.0.32.254</value>\n</variable>\n<variable>\n<name>USERNAME</name>\n<value>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CG5NEJ4GF9V1GRytsQVpt6Kz8H2vwaddC$</value>\n</variable>\n<variable>\n<name>PASSWORD</name>\n<value>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CG5OFWPT2LU1xnHiE3zXXkqY9utjLI69r$</value>\n</variable>\n</day0>\n<host-key-verification-type>none</host-key-verification-type>\n<internal-connection-point>\n<id>nic1</id>\n<connection-point-address>\n<address>10.0.35.$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</address>\n</connection-point-address>\n<port-security>false</port-security>\n</internal-connection-point>\n<internal-connection-point>\n<id>nic2</id>\n<connection-point-address>\n<address>192.168.31.253</address>\n</connection-point-address>\n<port-security>false</port-security>\n</internal-connection-point>\n</vdu>\n<vnfd-connection-point>\n<id>p5g-internal-mgmt-net</id>\n<network-name>p5g-internal-mgmt-net</network-name>\n</vnfd-connection-point>\n<vnfd-connection-point>\n<id>p5g-sdwan-service</id>\n<network-name>p5g-sdwan-service-$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</network-name>\n</vnfd-connection-point>\n</vnf-info>\n</vnf-deployment>\n</esc>\n</vnf-info>\n</nfvo>",
+                  "continue_on_failure": false,
+                  "datastore": "running",
+                  "display_name": "UPF",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01CD7YOY036OU3gVREKuf53TbQt7HmyXWU3",
+                "name": "While Loop",
+                "title": "UPF Instance Check",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "UPF Instance Check",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01CD7YP4R7MUV4ezioltIaInXglT6OEYhvw",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXQQU1JoLmSl86eZm4G9t9y27Rt$",
+                        "operator": "eq",
+                        "right_operand": true
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01CSJ6TUUIH7679BxoKrKPbRaD5Z8bUW028",
+                        "name": "Get UPF instance status",
+                        "title": "Get UPF instance status",
+                        "type": "workflow.sub_workflow",
+                        "base_type": "subworkflow",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Get UPF instance status",
+                          "input": {
+                            "variable_workflow_01C6FE275D9Z15PC5mTbdujG2FSuPPktIUo": true,
+                            "variable_workflow_01C6FEK3J0GSU5b9QA3kE1p8OMxpwYaUQSY": "/nfvo/vnf-info/esc/vnf-deployment-result[deployment-name='P5G_CUPS_CP_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$']/vdu[vnf-info='UPF']/vm-device/status",
+                            "variable_workflow_01C6FGE5IPM375TK6Jf0tZV9pTBX47ZiTcb": ""
+                          },
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "target_type": "01AZGH23JYXWF4Dy5t9N9OFZ9wBmPIj8Kr8",
+                            "use_workflow_target": true
+                          },
+                          "workflow_id": "definition_workflow_01C6FCXHA3W015hBwO7Qy2mEf0Q0KXrT3Bt"
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01CD7YP8BPAD86padZvspBJT47IIuV0AO8C",
+                        "name": "Condition Block",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_01CD7YP9YTL8V2Lq0NBr2Db1escAaxGbvx2",
+                            "name": "Condition Branch",
+                            "title": "Condition Branch \"ready\"",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": "$activity.definition_activity_01CSJ6TUUIH7679BxoKrKPbRaD5Z8bUW028.output.variable_workflow_01C6FUY1R6LMF5I0BWpGRNmNwPo8PUhKIuA$",
+                                "operator": "mw",
+                                "right_operand": "*ready*"
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Condition Branch \"ready\"",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01CD7YPBV6XGZ1HlY524RBg3fVFjioNBVn1",
+                                "name": "Break",
+                                "title": "Break",
+                                "type": "logic.break",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Break",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01CD7YPF5VALE1pUUI6y3TU884OyDKzsJfd",
+                        "name": "Sleep",
+                        "title": "Sleep",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep",
+                          "skip_execution": false,
+                          "sleep_interval": 15
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01CS2IBXCDNJ25UXo4QFsKIaddY9Dg9kmZd",
+                "name": "Group",
+                "title": "Onboard UPF device",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Onboard UPF device",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01CS2IC4A3DJW101nBHU8yfnqK0kfHTTs6u",
+                    "name": "<edit-config>",
+                    "title": "upf authgroup",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<authgroups>\n<group>\n<name>upf_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<default-map>\n<remote-name>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CG5NEJ4GF9V1GRytsQVpt6Kz8H2vwaddC$</remote-name>\n<remote-password>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CG5OFWPT2LU1xnHiE3zXXkqY9utjLI69r$</remote-password>\n</default-map>\n</group>\n</authgroups>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "upf authgroup",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CS2IC6B12SR2dRpsLA9Umv4VkEJBkA4Gv",
+                    "name": "<edit-config>",
+                    "title": "Add upf device",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>upf_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<address>10.0.35.$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</address>\n<authgroup>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</authgroup>\n<device-type>\n<cli>\n<ned-id xmlns:cisco-staros-id=\"http://tail-f.com/ned/cisco-staros-id\">cisco-staros-id:cisco-staros</ned-id>\n<protocol>ssh</protocol>\n</cli>\n</device-type>\n<state>\n<admin-state>unlocked</admin-state>\n</state>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Add upf device",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CS2IC7O8R2R6DEA8PoxKMrOuuqTK1mZ5B",
+                    "name": "<action>",
+                    "title": "upf fetch keys",
+                    "type": "netconf.action",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "upf fetch keys",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      },
+                      "type": "yang",
+                      "xml": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>upf_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<ssh>\n<fetch-host-keys/>\n</ssh>\n</device>\n</devices>"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CS2IC99NOGR3JE6r499JwHP0n5rsj2dYK",
+                    "name": "<action>",
+                    "title": "upf sync-from",
+                    "type": "netconf.action",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "upf sync-from",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      },
+                      "type": "yang",
+                      "xml": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>upf_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<sync-from/>\n</device>\n</devices>"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01CRRGATHJ2623sJfpcZyia7uJ2svH1iBr0",
+            "name": "Group",
+            "title": "eNodB",
+            "type": "logic.group",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "eNodB",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01CRRHEES2AUH4cYaN5rvA3BGewncvulvki",
+                "name": "<edit-config>",
+                "title": "eNodB",
+                "type": "netconf.editConfig",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "config": "<nfvo xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo\">\n<vnf-info>\n<esc xmlns=\"http://tail-f.com/pkg/tailf-etsi-rel2-nfvo-esc\">\n<vnf-deployment>\n<tenant>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFY40W6lIGUo5MJXvWIGANThjh2L$</tenant>\n<deployment-name>P5G_CUPS_CP_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</deployment-name>\n<esc>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.input.variable_workflow_01CCFS0TFY0SY6Ua1Qp5fXe8wbP1DmV7gB2$</esc>\n<username>admin</username>\n<vnf-info>\n<name>ENODB</name>\n<vnfd>CUPS</vnfd>\n<vnfd-flavor>lattice</vnfd-flavor>\n<instantiation-level>bronze</instantiation-level>\n<vdu>\n<id>LATTICE</id>\n<bootup-time>300</bootup-time>\n<recovery-wait-time>120</recovery-wait-time>\n<image-name>lattice_cups</image-name>\n<flavor-name>lattice</flavor-name>\n<day0>\n<destination>--user-data</destination>\n<url>http://10.49.234.154/p5g/day0/cups/enodb_day0_template.cfg</url>\n<variable>\n<name>APN_NAME</name>\n<value>customer$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</value>\n</variable>\n<variable>\n<name>CALL_COUNT</name>\n<value>1</value>\n</variable>\n<variable>\n<name>MCC</name>\n<value>123</value>\n</variable>\n<variable>\n<name>MNC</name>\n<value>45</value>\n</variable>\n<variable>\n<name>MME_S1MME_ADDRESS</name>\n<value>192.168.31.111</value>\n</variable>\n<variable>\n<name>MME_S1MME_PREFIX_LENGTH</name>\n<value>24</value>\n</variable>\n<variable>\n<name>S1MME_ENB_IP_ADDRESS</name>\n<value>192.168.31.100</value>\n</variable>\n<variable>\n<name>S1MME_ENB_PREFIX_LENGTH</name>\n<value>24</value>\n</variable>\n<variable>\n<name>S1U_ENB_IP_ADDRESS</name>\n<value>192.168.31.100</value>\n</variable>\n<variable>\n<name>S1U_ENB_PREFIX_LENGTH</name>\n<value>24</value>\n</variable>\n<variable>\n<name>IMSI</name>\n<value>123456000000001</value>\n</variable>\n<variable>\n<name>ENB_ID</name>\n<value>1</value>\n</variable>\n<variable>\n<name>TAC</name>\n<value>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$0</value>\n</variable>\n<variable>\n<name>PASSWORD</name>\n<value>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CG5OFWPT2LU1xnHiE3zXXkqY9utjLI69r$</value>\n</variable>\n</day0>\n<host-key-verification-type>none</host-key-verification-type>\n<internal-connection-point>\n<id>nic1</id>\n<connection-point-address>\n<address>10.0.36.$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</address>\n</connection-point-address>\n<port-security>false</port-security>\n</internal-connection-point>\n<internal-connection-point>\n<id>nic2</id>\n<connection-point-address>\n<address>192.168.31.100</address>\n</connection-point-address>\n<port-security>false</port-security>\n</internal-connection-point>\n</vdu>\n<vnfd-connection-point>\n<id>p5g-internal-mgmt-net</id>\n<network-name>p5g-internal-mgmt-net</network-name>\n</vnfd-connection-point>\n<vnfd-connection-point>\n<id>p5g-service</id>\n<network-name>p5g-sdwan-service-$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</network-name>\n</vnfd-connection-point>\n</vnf-info>\n</vnf-deployment>\n</esc>\n</vnf-info>\n</nfvo>",
+                  "continue_on_failure": false,
+                  "datastore": "running",
+                  "display_name": "eNodB",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01CRU0SVX7C3G6QbPg3N0B0zZ5piivNn0bh",
+                "name": "While Loop",
+                "title": "eNodB Instance Check",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "eNodB Instance Check",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01CRU0SY6QYRZ2tE75LqFzCiNzFu3EKZ3TE",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXQQU1JoLmSl86eZm4G9t9y27Rt$",
+                        "operator": "eq",
+                        "right_operand": true
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01CSKC7SV29VW2dBbrZd0u0CCbD7BrFbRyN",
+                        "name": "Get eNodB instance status",
+                        "title": "Get eNodB instance status",
+                        "type": "workflow.sub_workflow",
+                        "base_type": "subworkflow",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Get eNodB instance status",
+                          "input": {
+                            "variable_workflow_01C6FE275D9Z15PC5mTbdujG2FSuPPktIUo": true,
+                            "variable_workflow_01C6FEK3J0GSU5b9QA3kE1p8OMxpwYaUQSY": "/nfvo/vnf-info/esc/vnf-deployment-result[deployment-name='P5G_CUPS_CP_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$']/vdu[vnf-info='ENODB']/vm-device/status",
+                            "variable_workflow_01C6FGE5IPM375TK6Jf0tZV9pTBX47ZiTcb": ""
+                          },
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "target_type": "01AZGH23JYXWF4Dy5t9N9OFZ9wBmPIj8Kr8",
+                            "use_workflow_target": true
+                          },
+                          "workflow_id": "definition_workflow_01C6FCXHA3W015hBwO7Qy2mEf0Q0KXrT3Bt"
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01CRU0TA48V8H4qrLGcyvy33y1PHoeEkMW7",
+                        "name": "Condition Block",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_01CRU0TD03LXH4YvXMU6m10ddVaHXv50cAn",
+                            "name": "Condition Branch",
+                            "title": "Condition Branch \"ready\"",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": "$activity.definition_activity_01CSKC7SV29VW2dBbrZd0u0CCbD7BrFbRyN.output.variable_workflow_01C6FUY1R6LMF5I0BWpGRNmNwPo8PUhKIuA$",
+                                "operator": "mw",
+                                "right_operand": "*ready*"
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Condition Branch \"ready\"",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01CRU0TEPYLGD1nl6ovSPMm4sHxK1qvDfII",
+                                "name": "Break",
+                                "title": "Break",
+                                "type": "logic.break",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Break",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01CRU0TH2R19U2p90ocd5tee5naoTub8QYH",
+                        "name": "Sleep",
+                        "title": "Sleep",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep",
+                          "skip_execution": false,
+                          "sleep_interval": 15
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01CS31PE0MT262iGtzCPHuKYDpjRdV5ZyoP",
+                "name": "Group",
+                "title": "Onboard enodb device",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Onboard enodb device",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01CS31PIM883C0vTnz9OvxoaiusujuAmfrO",
+                    "name": "<edit-config>",
+                    "title": "eNodB authgroup",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<authgroups>\n<group>\n<name>enodb_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<default-map>\n<remote-name>centos</remote-name>\n<remote-password>$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CG5OFWPT2LU1xnHiE3zXXkqY9utjLI69r$</remote-password>\n</default-map>\n</group>\n</authgroups>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "eNodB authgroup",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CS31PKE01VO71TuCAQfdNIrTIc04r775L",
+                    "name": "<edit-config>",
+                    "title": "Add enodb device",
+                    "type": "netconf.editConfig",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "config": "<devices xmlns=\"http://tail-f.com/ns/ncs\">\n<device>\n<name>enodb_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</name>\n<address>10.0.36.$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</address>\n<authgroup>enodb_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</authgroup>\n<device-type>\n<generic>\n<ned-id xmlns:cisco-lattice=\"http://com/example/ciscolattice\">cisco-lattice:cisco-lattice-id</ned-id>\n</generic>\n</device-type>\n<trace>raw</trace>\n<state>\n<admin-state>unlocked</admin-state>\n</state>\n</device>\n</devices>",
+                      "continue_on_failure": false,
+                      "datastore": "running",
+                      "display_name": "Add enodb device",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01CS37CRHOGT37JLxONLtAoYms92JxbaJ9J",
+                    "name": "<action>",
+                    "title": "Start eNodB",
+                    "type": "netconf.action",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "Start eNodB",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": false,
+                        "override_workflow_target_group_criteria": false,
+                        "use_workflow_target": true,
+                        "use_workflow_target_group": false
+                      },
+                      "type": "yang",
+                      "xml": "<private5g xmlns=\"http://example.com/private5g\">\n<MANAGE xmlns=\"http://example.com/private5g-rpcs\">\n<start-lattice>\n<as>enodb</as>\n<lattice-name>enodb_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</lattice-name>\n</start-lattice>\n</MANAGE>\n</private5g>"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01CS3CM9H02VL2wAT3vXg7Ek1BbZODIfIBN",
+        "name": "While Loop",
+        "title": "Check connectivity eNodB to MME",
+        "type": "logic.while",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Check connectivity eNodB to MME",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01CS3CMF47PCB382jsmRtzFqop5VNwCicF7",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXQQU1JoLmSl86eZm4G9t9y27Rt$",
+                "operator": "eq",
+                "right_operand": true
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01CS3DKNSQNW75ARy9k7eUMYAe1WN9mFQs0",
+                "name": "Sleep",
+                "title": "Sleep",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01CS3E8E1GNU04t3R2AbJ01Vms694hLgJ0A",
+                "name": "<action>",
+                "title": "check connectivity eNB to MME",
+                "type": "netconf.action",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "check connectivity eNB to MME",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  },
+                  "type": "yang",
+                  "xml": "<private5g xmlns=\"http://example.com/private5g\">\n<STATUS xmlns=\"http://example.com/private5g-rpcs\">\n<check-s1-mme>\n<CUPS-CP-vpcsi-name>vpcsi_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</CUPS-CP-vpcsi-name>\n<eNodB-s1-mme-address>192.168.31.100</eNodB-s1-mme-address>\n<eNodB-name>enodb_$workflow.definition_workflow_01CCFS0TTKEHG56wHtQpX3hkFJTHD38IVyk.local.variable_workflow_01CCFS0TFXZ0Z1rhQdzuhAerWeTBN2HEwOx$</eNodB-name>\n</check-s1-mme>\n</STATUS>\n</private5g>"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01CS3FGYMMQ423DZfAHyGTQXvQwRZXTICKP",
+                "name": "XPath Query",
+                "title": "XPath Query",
+                "type": "core.xpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "XPath Query",
+                  "input_xml": "$activity.definition_activity_01CS3E8E1GNU04t3R2AbJ01Vms694hLgJ0A.output.xml$",
+                  "skip_execution": false,
+                  "xpath_queries": [
+                    {
+                      "xpath_query": "/result",
+                      "xpath_query_name": "result",
+                      "xpath_query_type": "string"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01CS3GBVBCUYW61HbFT1WD6C1wFISHCr1xP",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01CS3GC1N1US15a7o9RzMEpTdZYISP7FwRQ",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_01CS3FGYMMQ423DZfAHyGTQXvQwRZXTICKP.output.xpath_queries.result$",
+                        "operator": "eq",
+                        "right_operand": "OK"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01CS3HAVIZCMZ0XH5pZeGenoW9HZHD0S0a4",
+                        "name": "Break",
+                        "title": "Break",
+                        "type": "logic.break",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Break",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_01CCCE23ZUXRU1y535fXMQLehiLPaUB5JiO"
+    ]
+  },
+  "categories": {
+    "category_01CCCE23ZUXRU1y535fXMQLehiLPaUB5JiO": {
+      "unique_name": "category_01CCCE23ZUXRU1y535fXMQLehiLPaUB5JiO",
+      "name": "mvp_0.1",
+      "title": "mvp_0.1",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01C6FCXHA3W015hBwO7Qy2mEf0Q0KXrT3Bt",
+        "name": "Get XPATH Value",
+        "title": "Get XPATH Value",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "subtreeFilter",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01C6FGE5IPM375TK6Jf0tZV9pTBX47ZiTcb",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "returnValue",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01C6FUY1R6LMF5I0BWpGRNmNwPo8PUhKIuA",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.boolean",
+            "properties": {
+              "value": true,
+              "scope": "input",
+              "name": "operationalData",
+              "type": "datatype.boolean",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01C6FE275D9Z15PC5mTbdujG2FSuPPktIUo",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "xpath",
+              "type": "datatype.string",
+              "is_required": true
+            },
+            "unique_name": "variable_workflow_01C6FEK3J0GSU5b9QA3kE1p8OMxpwYaUQSY",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "Get XPATH Value",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "target_type": "netconf.endpoint",
+            "specify_on_workflow_start": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01C6FERWHJSNM6DjwG0ltaBzLgz6R4Gjvkf",
+            "name": "<get> / <get-config>",
+            "title": "get config",
+            "type": "netconf.get",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "get config",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "subtree": "$workflow.definition_workflow_01C6FCXHA3W015hBwO7Qy2mEf0Q0KXrT3Bt.input.variable_workflow_01C6FGE5IPM375TK6Jf0tZV9pTBX47ZiTcb$",
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              },
+              "xpath": "$workflow.definition_workflow_01C6FCXHA3W015hBwO7Qy2mEf0Q0KXrT3Bt.input.variable_workflow_01C6FEK3J0GSU5b9QA3kE1p8OMxpwYaUQSY$"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01C6FEUMUDR1064bRjQ8wQPee5RI2zz5eaw",
+            "name": "XPath Query",
+            "title": "parse xml",
+            "type": "core.xpathquery",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "parse xml",
+              "input_xml": "$activity.definition_activity_01C6FERWHJSNM6DjwG0ltaBzLgz6R4Gjvkf.output.xml$",
+              "skip_execution": false,
+              "xpath_queries": [
+                {
+                  "xpath_query": "/data/$workflow.definition_workflow_01C6FCXHA3W015hBwO7Qy2mEf0Q0KXrT3Bt.input.variable_workflow_01C6FEK3J0GSU5b9QA3kE1p8OMxpwYaUQSY$",
+                  "xpath_query_name": "value",
+                  "xpath_query_type": "string"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01C6FUDPSKUBP1bNrnLfJRqcDsvNSPMmcdy",
+            "name": "Set Variables",
+            "title": "set output variables",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "set output variables",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01C6FCXHA3W015hBwO7Qy2mEf0Q0KXrT3Bt.output.variable_workflow_01C6FUY1R6LMF5I0BWpGRNmNwPo8PUhKIuA$",
+                  "variable_value_new": "$activity.definition_activity_01C6FEUMUDR1064bRjQ8wQPee5RI2zz5eaw.output.xpath_queries.value$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_01CCCE23ZUXRU1y535fXMQLehiLPaUB5JiO"
+        ]
+      }
+    }
+  ]
+}
